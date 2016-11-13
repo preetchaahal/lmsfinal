@@ -1,0 +1,51 @@
+<include href="admin/templates/header.html">
+            <br>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1>All Courses</h1>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Display Name</th>
+                                        <th>Duration</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <repeat group="{{ @DATA }}" value="{{ @course }}">
+                                        <tr>
+                                            <td>{{ @course.name }}</td>
+                                            <td>{{ @course.display_name}}</td>
+                                            <td>{{ @course.duration }}</td>
+                                            <td>{{ @course.description }}</td>
+                                            <td style="text-align: center">
+                                                <check if="{{ @course.status }}">
+                                                    <true>
+                                                        <button type="button" class="btn btn-success">Active</button>
+                                                    </true>
+                                                    <false>
+                                                        <button type="button" class="btn btn-danger">De-Active</button>
+                                                    </false>
+                                                </check>
+                                            </td>
+                                        </tr>
+                                    </repeat>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+<include href="admin/templates/footer.html">

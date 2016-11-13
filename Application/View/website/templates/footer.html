@@ -1,0 +1,178 @@
+<div class="footer">
+	  <div class="container">
+	    <div class="col-md-4 col-xs-12 col-sm-4 widget">
+	      <h4>COMPANY INFO</h4>
+	      <ul class="col-md-6 col-xs-6 col-sm-4">
+	        <li>
+	          <a href="#">Home</a>
+	        </li>
+
+	         <li>
+	          <a href="#">About Us</a>
+	        </li>
+
+	         <li>
+	          <a href="#">Courses</a>
+	        </li>
+	         <li>
+	          <a href="#">Tuition Fee</a>
+	        </li>
+	      </ul>
+
+	      <ul class="col-md-6 col-xs-6 col-sm-4">
+	        <li>
+	          <a href="#">Free</a>
+	        </li>
+
+	         <li>
+	          <a href="#">Contact Us</a>
+	        </li>
+	      </ul>
+	  </div>
+
+	  <div class="col-md-4 col-xs-12 col-sm-4 widget">
+	    <h4>HELPFUL INFO</h4>
+	    <ul>
+	       <li><a href="#">help / faq</a></li>
+	       <li><a href="#">privacy policy</a></li>
+	       <li><a href="#">disclaimer</a></li>
+	     </ul>
+	  </div>
+	   
+	        <div class="social col-md-4 col-xs-12 col-sm-12  widget">
+	            <div class="row" align="center">
+	              <a href="#" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+
+	              <a href="#" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+
+	              <a href="#" target="_blank"><i class="fa fa-wordpress fa-2x"></i></a>
+
+	               <a href="#" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+
+	              <a href="https://www.youtube.com/c/jefftaxdahlthreadlogic" target="_blank"><i class="fa fa-youtube fa-2x"></i></a>
+	            </div><br>
+	            <p class="text-center">Copyright © 2016 <a href="#"> Name Here</p>
+	           <!--  <p class="text-center">Designed & Hosted By: <a href="#" target="_blank" style="color:#A72031">Name here</a></p> -->
+	        </div>
+
+	    </div>
+	  </div>
+
+	<a href="http://gazpo.com/downloads/tutorials/jquery/scrolltop/#" class="scrollup" style="display: none;">Scroll</a>
+
+<!-- help -->
+<!-- <div id="feedback">
+    <div id="feedback-form" style='display:none;' class="col-xs-4 col-md-4 panel panel-default">
+      <form method="POST" action="/feedback" class="form panel-body" role="form">
+      <div class="form-group">
+          <input class="form-control" name="text" autofocus placeholder="Your name" type="name" />
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" name="email" autofocus placeholder="Your e-mail" type="email" />
+        </div>
+         
+        <div class="form-group">
+          <textarea class="form-control" name="body" required placeholder="Please write your feedback here..." rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary pull-right" type="submit">Send</button>
+      </form>
+    </div>
+    <div id="feedback-tab">Help</div>
+  </div> -->
+
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="{{ @ASSETS.site }}/js/feedback.js"></script>
+	<script type="text/javascript" src="https://use.fontawesome.com/291c112733.js"></script>
+	<script type="text/javascript" src="{{ @ASSETS.site }}/js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="{{ @ASSETS.site }}/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ @ASSETS.site }}/js/easing.js"></script>
+	<script type="text/javascript" src="{{ @ASSETS.site }}/js/jquery.smoove.js"></script>
+
+
+
+	 <!-- fade -->
+	<script>
+	$('.block').smoove({
+	  offset:'20%'
+	});
+	</script>
+
+	<script type="text/javascript">
+	$(window).load( function() {
+	    // use default options
+	    $(document).smoothGallery({
+	        animSpeed:300, 
+	        delaySpeed:50,
+	        visibleRows: 2,
+	        animEasing: 'easeOutQuart'
+	    });
+	});
+	</script>
+
+
+	    <script type="text/javascript">
+	      $(document).ready(function(){ 
+	      
+	      $(window).scroll(function(){
+	        if ($(this).scrollTop() > 100) {
+	          $('.scrollup').fadeIn();
+	        } else {
+	          $('.scrollup').fadeOut();
+	        }
+	      }); 
+	      
+	      $('.scrollup').click(function(){
+	        $("html, body").animate({ scrollTop: 0 }, 600);
+	        return false;
+	      });
+	 
+	    });
+	    </script>
+
+	<!-- menu -->
+	<script>
+	  $(document).ready(function() {
+	  
+	  $(window).scroll(function () {
+	      //if you hard code, then use console
+	      //.log to determine when you want the 
+	      //nav bar to stick.  
+	      console.log($(window).scrollTop())
+	    if ($(window).scrollTop() > 280) {
+	      $('#nav_bar').addClass('navbar-fixed');
+	    }
+	    if ($(window).scrollTop() < 281) {
+	      $('#nav_bar').removeClass('navbar-fixed');
+	    }
+	  });
+	});
+
+	</script>
+
+
+
+	<!-- menu -->
+	<script>
+	$(document).ready(function(){ 
+	  var touch   = $('#resp-menu');
+	  var menu  = $('.menu');
+	 
+	  $(touch).on('click', function(e) {
+	    e.preventDefault();
+	    menu.slideToggle();
+	  });
+	  
+	  $(window).resize(function(){
+	    var w = $(window).width();
+	    if(w > 767 && menu.is(':hidden')) {
+	      menu.removeAttr('style');
+	    }
+	  });
+	  
+	});
+	</script>
+
+  </body>
+</html>
