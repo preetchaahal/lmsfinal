@@ -14,8 +14,8 @@ $app->route("GET @home_contact: /contact",	"Controller\Website->contact");
 ***	Admin Application Routes
 **/
 $app->route("GET @admin:			/admin",			"Controller\AdminApp->index");
-$app->route("GET @admin_courses:	/admin/courses","Controller\AdminApp->courses");
-$app->route("GET 					/admin/courses/@page","Controller\AdminApp->courses");
+$app->route("GET @admin_courses_index:	/admin/courses","Controller\AdminApp->courses");
+$app->route("GET @admin_courses: 	/admin/courses/@page","Controller\AdminApp->courses");
 $app->route("GET @admin_result: 	/admin/result",		"Controller\AdminApp->result");
 $app->route("GET @admin_assignment: /admin/assignment",	"Controller\AdminApp->assignment");
 $app->route("GET @admin_profile: 	/admin/profile",	"Controller\AdminApp->profile");
@@ -45,7 +45,13 @@ $app->route("GET @student:				/student",			"Controller\StudentApp->index");
 $app->route("GET @student_courses:		/student/courses",	"Controller\StudentApp->courses");
 $app->route("GET @student_result:		/student/result",	"Controller\StudentApp->result");
 $app->route("GET @student_assignment:	/student/assignment","Controller\StudentApp->assignment");
-$app->route("GET @student_uploads:		/student/uploads",	"Controller\StudentApp->uploads");
+$app->route("GET @student_assignments:		/student/assignments",	"Controller\StudentApp->assignments");
+$app->route("GET @student_downloads:		/student/downloads",	"Controller\StudentApp->downloads");
+$app->route("GET @student_examination:		/student/examination",	"Controller\StudentApp->examination");
+$app->route("GET @student_performance:		/student/performance",	"Controller\StudentApp->performance");
+$app->route("GET @student_statistics:		/student/statistics",	"Controller\StudentApp->statistics");
+$app->route("GET @student_studymaterial:		/student/studymaterial",	"Controller\StudentApp->studymaterial");
+
 
 $app->route("GET @student_login: 		/student/login", function($app) {
 	echo \Template::instance()->render('student/login.html');
