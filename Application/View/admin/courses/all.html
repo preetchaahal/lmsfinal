@@ -29,10 +29,10 @@
                                             <td style="text-align: center">
                                                 <check if="{{ @course.status }}">
                                                     <true>
-                                                        <button type="button" class="btn btn-success">Active</button>
+                                                      <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
                                                     </true>
                                                     <false>
-                                                        <button type="button" class="btn btn-danger">De-Active</button>
+                                                        <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
                                                     </false>
                                                 </check>
                                             </td>

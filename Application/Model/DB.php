@@ -26,8 +26,14 @@ abstract class DB extends \DB\SQL\Mapper {
 		return true;
 	}
 
-	public function changeStatus(Array $params)
+	public function updateStatus(Array $params)
 	{
+		/**
+		* Takes id as row identifier and then the field you want to update. Only Booleans.
+		*/
+		$this->load("id = {$params['id']}");
+		$this->$params['field'] = $params['value'] ? 0 : 1;
+		$this->save();
 		return true;
 	}
 
