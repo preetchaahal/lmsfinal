@@ -1,12 +1,5 @@
 <?php
 
-// $app->set('DB', new DB\SQL(
-//     'mysql:host=localhost;port=3306;dbname=dzstd_lms',
-//     'root',
-//     ''
-//     )
-// );
-
 $app->set('DB', new DB\SQL(
 	$app->get('DB_HOST'),
 	$app->get('DB_USER'),

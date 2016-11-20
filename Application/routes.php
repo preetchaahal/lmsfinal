@@ -13,29 +13,30 @@ $app->route("GET @home_contact: /contact",	"Controller\Website->contact");
 /**
 ***	Admin Application Routes
 **/
-$app->route("GET @admin:			/admin",			"Controller\AdminApp->index");
-$app->route("GET @admin_courses_index:	/admin/courses","Controller\AdminApp->courses");
-$app->route("GET @admin_courses: 	/admin/courses/@page","Controller\AdminApp->courses");
-$app->route("GET @admin_result: 	/admin/result",		"Controller\AdminApp->result");
-$app->route("GET @admin_assignment: /admin/assignment",	"Controller\AdminApp->assignment");
-$app->route("GET @admin_profile: 	/admin/profile",	"Controller\AdminApp->profile");
-$app->route("GET @admin_email: 	/admin/email",	"Controller\AdminApp->email");
-$app->route("GET @admin_exam: 	/admin/exam",	"Controller\AdminApp->exam");
-$app->route("GET @admin_frontend: 	/admin/frontend",	"Controller\AdminApp->frontend");
-$app->route("GET @admin_payment: 	/admin/payment",	"Controller\AdminApp->payment");
-$app->route("GET @admin_statistics: 	/admin/statistics",	"Controller\AdminApp->statistics");
-$app->route("GET @admin_students: 	/admin/students",	"Controller\AdminApp->students");
+$app->route("GET @admin:				/admin",				"Controller\AdminApp->index");
+$app->route("GET @admin_courses_index:	/admin/courses",		"Controller\AdminApp->courses");
+$app->route("GET @admin_courses: 		/admin/courses/@page",	"Controller\AdminApp->courses");
+$app->route("GET @admin_result: 		/admin/result",			"Controller\AdminApp->result");
+$app->route("GET @admin_assignment: 	/admin/assignment",		"Controller\AdminApp->assignment");
+$app->route("GET @admin_profile: 		/admin/profile",		"Controller\AdminApp->profile");
+$app->route("GET @admin_email: 			/admin/email",			"Controller\AdminApp->email");
+$app->route("GET @admin_exam: 			/admin/exam",			"Controller\AdminApp->exam");
+$app->route("GET @admin_frontend: 		/admin/frontend",		"Controller\AdminApp->frontend");
+$app->route("GET @admin_payment: 		/admin/payment",		"Controller\AdminApp->payment");
+$app->route("GET @admin_statistics: 	/admin/statistics",		"Controller\AdminApp->statistics");
+$app->route("GET @admin_students: 		/admin/students",		"Controller\AdminApp->students");
 $app->route("GET @admin_studymaterial: 	/admin/studymaterial",	"Controller\AdminApp->studymaterial");
 
-$app->route("GET @admin_login: 		/admin/login", function($app) {
+$app->route("GET @admin_login:			/admin/login", function($app) {
 	echo \Template::instance()->render('admin/login.html');
 });
 $app->route("GET @admin_register: 		/admin/register", function($app) {
 	echo \Template::instance()->render('admin/register.html');
 });
-$app->route("GET @admin_logout: 	/admin/logout",		"Controller\Auth::adminLogout");
+$app->route("GET @admin_logout:			/admin/logout",		"Controller\Auth::adminLogout");
 
-$app->route("POST @admin_auth: 		/admin/auth",		"Controller\Auth::adminLogin");
+$app->route("POST @admin_auth_login:	/admin/auth/login",		"Controller\Auth::adminLogin");
+$app->route("POST @admin_auth_register:	/admin/auth/register",	"Controller\Auth::adminRegister");
 /*-----------------------------------------------------------------------------------*/
 
 /**
@@ -54,13 +55,14 @@ $app->route("GET @student_studymaterial:/student/studymaterial",	"Controller\Stu
 $app->route("GET @student_login: 		/student/login", function($app) {
 	echo \Template::instance()->render('student/login.html');
 });
-$app->route("GET @student_register: 		/student/register", function($app) {
+$app->route("GET @student_register: 	/student/register", function($app) {
 	echo \Template::instance()->render('student/register.html');
 });
 
-$app->route("GET @student_logout:   /student/logout", "Controller\Auth::studentLogout");
+$app->route("GET @student_logout:		/student/logout", "Controller\Auth::studentLogout");
 
-$app->route("POST @student_auth: 		/student/auth",		"Controller\Auth::studentLogin");
+$app->route("POST @student_auth_login:		/student/auth",			"Controller\Auth::studentLogin");
+$app->route("POST @student_auth_register:	/admin/auth/register",	"Controller\Auth::studentRegister");
 /*------------------------------------------------------------------------------------*/
 
 /**

@@ -26,6 +26,11 @@ class Auth
 		$app->reroute('@admin_login');
 	}
 
+	public static function adminRegister($app) {
+		$admin = new \Model\Admin;
+		$admin->
+	} 
+
 	public static function studentLogin($app) {
 		$authorized = $app->get('auth_student')->login(
 			$app->get('POST.username'),
