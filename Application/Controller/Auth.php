@@ -2,6 +2,9 @@
 
 namespace Controller;
 
+use \Model\Admin as Admin;
+use \Model\Student as Student;
+
 class Auth
 {
 	public static function adminLogin($app) {
@@ -27,9 +30,12 @@ class Auth
 	}
 
 	public static function adminRegister($app) {
-		$admin = new \Model\Admin;
-		$admin->
-	} 
+		$admin = new Admin($app->get('DB'));
+		$added = $admin->addNew($app->get('POST'));
+		if($added) {
+			$app->reroute('@admin_register');
+		}
+	}
 
 	public static function studentLogin($app) {
 		$authorized = $app->get('auth_student')->login(
@@ -50,5 +56,13 @@ class Auth
 	public static function studentLogout($app) {
 		$app->clear('SESSION.student.id');
 		$app->reroute('@student_login');
+	}
+
+	public static function studentRegister($app) {
+		$student = new Student($app->get('DB'));
+		$added = $admin->addNew($app->get('POST'));
+		if($added) {
+			$app->reroute('@student_register');
+		}
 	}
 }

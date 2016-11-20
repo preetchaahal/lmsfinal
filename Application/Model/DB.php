@@ -3,7 +3,7 @@
 namespace Model;
 
 abstract class DB extends \DB\SQL\Mapper {
-	
+
 	protected $db = null;
 	protected $table_name = null;
 
@@ -19,7 +19,7 @@ abstract class DB extends \DB\SQL\Mapper {
 		return $this->db->exec('SELECT * FROM '.$this->table_name);
 	}
 
-	public function add(Array $params)
+	public function addNew(Array $params)
 	{
 		$this->copyFrom($params);
 		$this->save();
@@ -29,5 +29,9 @@ abstract class DB extends \DB\SQL\Mapper {
 	public function changeStatus(Array $params)
 	{
 		return true;
+	}
+
+	public function __destruct() {
+		$this->reset();
 	}
 }

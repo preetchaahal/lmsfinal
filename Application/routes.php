@@ -62,7 +62,7 @@ $app->route("GET @student_register: 	/student/register", function($app) {
 $app->route("GET @student_logout:		/student/logout", "Controller\Auth::studentLogout");
 
 $app->route("POST @student_auth_login:		/student/auth",			"Controller\Auth::studentLogin");
-$app->route("POST @student_auth_register:	/admin/auth/register",	"Controller\Auth::studentRegister");
+$app->route("POST @student_auth_register:	/student/auth/register",	"Controller\Auth::studentRegister");
 /*------------------------------------------------------------------------------------*/
 
 /**
@@ -70,5 +70,5 @@ $app->route("POST @student_auth_register:	/admin/auth/register",	"Controller\Aut
 **/
 $app->route("POST @course_add:	/admin/courses", function($app) {
 	$course = new Model\Course($app->get('DB'));
-	$course->add($app->get('POST'));
+	$course->addNew($app->get('POST'));
 });
