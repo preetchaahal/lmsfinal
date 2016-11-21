@@ -73,3 +73,12 @@ $app->route("POST @course_add:	/admin/courses", function($app) {
 	$course->addNew($app->get('POST'));
 });
 $app->route("GET @course_update: /admin/courses/update/@field/@value/@id", "Controller\Courses->update");
+
+/** testing new Views */
+$app->route("GET @admin_courses_index_new: 		/admin/courses/index", function($app) {
+	echo \Template::instance()->render('admin/courses/index.html');
+});
+
+$app->route("GET @testpages_tabs: /testpages/tabs", function($app) {
+	echo \Template::instance()->render('testpages/tabs.html');
+});
