@@ -80,5 +80,8 @@ $app->route("GET @admin_courses_index_new: 		/admin/courses/index", function($ap
 });
 
 $app->route("GET @testpages_tabs: /testpages/tabs", function($app) {
+	$course = new \Model\Course($app->get('DB'));
+	$courses = $course->all();
+	$app->set('DATA',$courses);
 	echo \Template::instance()->render('testpages/tabs.html');
 });
