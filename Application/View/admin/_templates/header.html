@@ -248,7 +248,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="{{ @BASE.@ALIASES.admin_profile }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -292,9 +292,6 @@
                                     <a href="{{ @BASE,@ALIASES.admin_courses_index }}/edit"><i class="fa fa-trash fa-fw"></i> Edit/Delete </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="{{ @BASE.@ALIASES.admin_profile }}"><i class="fa fa-user fa-fw"></i> Profile</a>
                         </li>
                         <li>
                             <a href="{{ @BASE.@ALIASES.admin_students }}"><i class="fa fa-graduation-cap fa-fw"></i> Students</a>

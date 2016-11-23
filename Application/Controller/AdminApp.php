@@ -47,6 +47,10 @@ class AdminApp {
 
 	public function students($app)
 	{
+		$student = new \Model\Student($app->get('DB'));
+		$students = $student->all();
+		$app->set('DATA',$students);
+
 		echo \Template::instance()->render('admin/students/index.html');
 	}
 
