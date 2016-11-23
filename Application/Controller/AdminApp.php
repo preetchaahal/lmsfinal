@@ -64,10 +64,10 @@ class AdminApp {
 		switch ($app->get('PARAMS.page'))
 		{
 			case '':
-				echo \Template::instance()->render('admin/courses/all.html');
+				echo \Template::instance()->render('admin/courses/index.html');
 				break;
 			case 'all':
-				echo \Template::instance()->render('admin/courses/all.html');
+				echo \Template::instance()->render('admin/courses/index.html');
 				break;
 			case 'add':
 				echo \Template::instance()->render('admin/courses/add.html');

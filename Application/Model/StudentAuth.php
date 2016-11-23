@@ -4,7 +4,7 @@ namespace Model;
 
 class StudentAuth extends DB {
 
-	const TABLE = 'lms_assignments_dzstd';
+	const TABLE = 'lms_student_auth_dzstd';
 
 	public function __construct(\DB\SQL $db)
 	{
