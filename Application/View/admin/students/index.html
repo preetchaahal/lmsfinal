@@ -1,9 +1,8 @@
 <include href="admin/_templates/header.html">
 
-
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">Courses</h1>
+    <h1 class="page-header">Students</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -12,43 +11,51 @@
 
 <div>
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">All</a></li>
-    <li role="presentation"><a href="#active" aria-controls="profile" role="tab" data-toggle="tab">Active</a></li>
-    <li role="presentation"><a href="#de-active" aria-controls="messages" role="tab" data-toggle="tab">De-Active</a></li>
-    <li role="presentation"><a href="#deleted" aria-controls="settings" role="tab" data-toggle="tab">Deleted</a></li>
+
+    <li><a title="Add New Student" href="{{ @BASE,@ALIASES.admin_students_add }}" class="btn btn-success active"><i class="fa fa-plus"></i> Add New</a></li>
+    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
+    <li role="presentation"><a href="#active" aria-controls="active" role="tab" data-toggle="tab">Active</a></li>
+    <li role="presentation"><a href="#de-active" aria-controls="de-active" role="tab" data-toggle="tab">De-Active</a></li>
+    <li role="presentation"><a href="#deleted" aria-controls="deleted" role="tab" data-toggle="tab">Deleted</a></li>
   </ul>
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+    <div role="tabpanel" class="tab-pane active" id="all">
       <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
         <thead>
             <tr>
+                <th></th>
                 <th>Username</th>
-                <th>Full Name</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Image</th>
-                <th>Access Level</th>
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <repeat group="{{ @DATA }}" value="{{ @student }}">
-                <tr>
-                    <td>{{ @student.name }}</td>
-                    <td>{{ @student.fullname}}</td>
-                    <td>{{ @student.email }}</td>
-                    <td>{{ @student.image }}</td>
-                    <td></td>
-                    <td style="text-align: center">
-                        <check if="{{ @student.status }}">
-                            <true>
-                              <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
-                            </true>
-                            <false>
-                                <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
-                            </false>
-                        </check>
-                    </td>
-                </tr>
+                <check if="{{ @student.archived }}">
+                    <false>
+                        <tr>
+                            <td><a title="Show Profile" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                            <td>{{ @student.username }}</td>
+                            <td>{{ @student.fullname }}</td>
+                            <td>{{ @student.email }}</td>
+                            <td>{{ @student.image }}</td>
+                            <td style="text-align: center">
+                                <check if="{{ @student.status }}">
+                                    <true>
+                                      <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                    </true>
+                                    <false>
+                                        <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                    </false>
+                                </check>
+                            </td>
+                            <td><a style="color: #d9534f" title="Delete" href=""><i class="fa fa-remove" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                        </tr>
+                    </false>
+                </check>
             </repeat>
         </tbody>
       </table>
@@ -57,33 +64,43 @@
       <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
         <thead>
             <tr>
-                <th>Username</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Image</th>
-                <th>Access Level</th>
+                <th></th>
+                <th>Name</th>
+                <th>Display Name</th>
+                <th>Duration</th>
+                <th>Description</th>
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <repeat group="{{ @DATA }}" value="{{ @student }}">
-                <tr>
-                    <td>{{ @student.name }}</td>
-                    <td>{{ @student.fullname}}</td>
-                    <td>{{ @student.email }}</td>
-                    <td>{{ @student.image }}</td>
-                    <td></td>
-                    <td style="text-align: center">
+                <check if="{{ @student.archived }}">
+                    <false>
                         <check if="{{ @student.status }}">
                             <true>
-                              <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                <tr>
+                                    <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                                    <td>{{ @student.username }}</td>
+                                    <td>{{ @student.fullname }}</td>
+                                    <td>{{ @student.email }}</td>
+                                    <td>{{ @student.image }}</td>
+                                    <td style="text-align: center">
+                                        <check if="{{ @student.status }}">
+                                            <true>
+                                              <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                            </true>
+                                            <false>
+                                                <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                            </false>
+                                        </check>
+                                    </td>
+                                    <td><a style="color: #d9534f" title="Delete" href=""><i class="fa fa-remove" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                                </tr>
                             </true>
-                            <false>
-                                <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
-                            </false>
                         </check>
-                    </td>
-                </tr>
+                    </false>
+                </check>
             </repeat>
         </tbody>
       </table>
@@ -92,33 +109,43 @@
       <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
         <thead>
             <tr>
+                <th></th>
                 <th>Username</th>
-                <th>Full Name</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Image</th>
-                <th>Access Level</th>
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <repeat group="{{ @DATA }}" value="{{ @student }}">
-                <tr>
-                    <td>{{ @student.name }}</td>
-                    <td>{{ @student.fullname}}</td>
-                    <td>{{ @student.email }}</td>
-                    <td>{{ @student.image }}</td>
-                    <td></td>
-                    <td style="text-align: center">
+                <check if="{{ @student.archived }}">
+                    <false>
                         <check if="{{ @student.status }}">
-                            <true>
-                              <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
-                            </true>
                             <false>
-                                <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                <tr>
+                                    <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                                    <td>{{ @student.username }}</td>
+                                    <td>{{ @student.fullname }}</td>
+                                    <td>{{ @student.email }}</td>
+                                    <td>{{ @student.image }}</td>
+                                    <td style="text-align: center">
+                                        <check if="{{ @student.status }}">
+                                            <true>
+                                              <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                            </true>
+                                            <false>
+                                                <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                            </false>
+                                        </check>
+                                    </td>
+                                    <td><a style="color: #d9534f" title="Delete" href=""><i class="fa fa-remove" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                                </tr>
                             </false>
                         </check>
-                    </td>
-                </tr>
+                    </false>
+                </check>
             </repeat>
         </tbody>
       </table>
@@ -127,33 +154,39 @@
       <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
         <thead>
             <tr>
-                <th>Username</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Image</th>
-                <th>Access Level</th>
+                <th></th>
+                <th>Name</th>
+                <th>Display Name</th>
+                <th>Duration</th>
+                <th>Description</th>
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <repeat group="{{ @DATA }}" value="{{ @student }}">
-                <tr>
-                    <td>{{ @student.name }}</td>
-                    <td>{{ @student.fullname}}</td>
-                    <td>{{ @student.email }}</td>
-                    <td>{{ @student.image }}</td>
-                    <td></td>
-                    <td style="text-align: center">
-                        <check if="{{ @student.status }}">
-                            <true>
-                              <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
-                            </true>
-                            <false>
-                                <a href="{{@BASE}}{{ 'course_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
-                            </false>
-                        </check>
-                    </td>
-                </tr>
+                <check if="{{ @student.archived }}">
+                    <true>
+                        <tr>
+                            <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                            <td>{{ @student.username }}</td>
+                            <td>{{ @student.fullname }}</td>
+                            <td>{{ @student.email }}</td>
+                            <td>{{ @student.image }}</td>
+                            <td style="text-align: center">
+                                <check if="{{ @student.status }}">
+                                    <true>
+                                      <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                    </true>
+                                    <false>
+                                        <a href="{{@BASE}}{{ 'admin_students_update', 'field=status,value='.@student.status.',id='.@student.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                    </false>
+                                </check>
+                            </td>
+                            <td><a style="color: #d9534f" title="Delete" href=""><i class="fa fa-remove" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                        </tr>
+                    </true>
+                </check>
             </repeat>
         </tbody>
       </table>
@@ -168,7 +201,7 @@ $('#myTabs a').click(function (e) {
   $(this).tab('show')
 })
 
-$('#myTabs a[href="#profile"]').tab('show') // Select tab by name
+$('#myTabs a[href="#all"]').tab('show') // Select tab by name
 $('#myTabs a:first').tab('show') // Select first tab
 $('#myTabs a:last').tab('show') // Select last tab
 $('#myTabs li:eq(2) a').tab('show') // Select third tab (0-indexed)

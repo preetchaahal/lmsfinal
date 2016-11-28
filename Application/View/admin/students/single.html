@@ -1,0 +1,43 @@
+<include href="admin/_templates/header.html">
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Students</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-lg-6">
+		<center><img src="" width="300" height="300" style="border: solid 1px #999; border-radius: 100%; overflow: hidden"></center>
+		<br>
+		<form role="form" method="post" action="{{ @BASE,@ALIASES.course_add }}">
+			<div class="form-group">
+				<input type="file" name="photo" class="form-control">
+			</div>
+		    <div class="form-group">
+		        <label>Name</label>
+		        <input type="text" name="name" class="form-control">
+		    </div>
+		    <div class="form-group">
+		        <label>Display Name</label>
+		        <input type="text" name="display_name" class="form-control">
+		    </div>
+		    <div class="form-group">
+		        <label>Duration</label>
+		        <input type="text" name="duration" class="form-control">
+		    </div>
+		    <div class="form-group">
+		        <label>Description(Optional)</label>
+		        <textarea name="description" class="form-control"></textarea>
+		    </div>
+		    <div class="form-group">
+			    <button type="submit" class="btn btn-default">Save</button>
+			    <button type="reset" class="btn btn-default">Reset</button>
+			</div>
+		</form>
+	</div>
+</div>
+
