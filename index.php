@@ -2,12 +2,14 @@
 
 $app = require_once('lib/base.php');
 
-$app->config('config/globals.ini');
+$app->config('Application/Config/globals.ini');
 
 $app->set('AUTOLOAD','Application/');
 
-require_once('Application/routes.php');
-require_once('Application/db.php');
-require_once('Application/authentication.php');
+require_once('Application/Routes/admin.php');
+require_once('Application/Routes/student.php');
+require_once('Application/Routes/website.php');
+require_once('Application/Config/db.php');
+require_once('Application/Config/authentication.php');
 
 $app->run();

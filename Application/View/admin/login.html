@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login to Admin Dashboard</title>
+  <title>Login as Staff/Admin</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="{{ @BASE,@ASSETS.admin }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -18,9 +18,13 @@
   <link href="{{ @BASE,@ASSETS.admin }}/dist/css/sb-admin-2.min.css" rel="stylesheet">
   <style type="text/css">
     .panel-title a {
-      font-size: 1.2em;
+      font-size: 1.4em;
     }
   </style>
+
+  <!-- Custom Fonts -->
+  <link href="{{ @BASE,@ASSETS.admin }}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -37,7 +41,7 @@
       <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
           <div class="panel-heading">
-          <h3 class="panel-title">Sign In as Staff or <a href="{{ @BASE.@ALIASES.admin_register }}">Register</a></h3>
+          <h3 class="panel-title">Login as Staff or <a href="{{ @BASE.@ALIASES.admin_register }}">Register</a></h3>
           </div>
           <div class="panel-body">
             <form role="form" method="post" action="{{ @BASE.@ALIASES.admin_auth_login }}">
@@ -46,7 +50,10 @@
                   <input class="form-control" placeholder="Username" name="username" autofocus>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="Password" name="password" type="password" id="passField" value="">
+                    <div id="passButton" class="input-group-addon"><i id="passIcon" class="fa fa-eye-slash" aria-hidden="true"></i></div>
+                  </div>
                 </div>
                 <div class="checkbox">
                   <label>
@@ -62,6 +69,26 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    
+    var passField = document.getElementById('passField');
+    var passButton = document.getElementById('passButton');
+    var passIcon = document.getElementById('passIcon');
+    
+    passButton.addEventListener('click',showHideToggle);
+
+    function showHideToggle() {
+      if(passIcon.className == "fa fa-eye-slash") {
+        passIcon.className = "fa fa-eye";
+        passField.type = "text";
+      }
+      else if(passIcon.className == "fa fa-eye") {
+        passIcon.className = "fa fa-eye-slash";
+        passField.type = "password";
+      }
+    }
+
+  </script>
 
 </body>
 

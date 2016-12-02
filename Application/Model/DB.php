@@ -26,6 +26,19 @@ abstract class DB extends \DB\SQL\Mapper {
 		return true;
 	}
 
+	public function getById($id = null)
+	{
+		return $this->db->exec("SELECT * FROM {$this->table_name} WHERE id={$id}");
+	}
+
+	public function findIf($condition = null)
+	{
+		if(isset($condition))
+			return $this->db->exec("SELECT * FROM {$this->table_name} WHERE $condition");
+		else
+			throw new Exception("Condition not provided", 1);
+	}
+
 	public function updateStatus(Array $params)
 	{
 		/**

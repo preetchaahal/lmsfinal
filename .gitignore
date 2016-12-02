@@ -1,2 +1,5 @@
 # Ignoring the temporary cached files created by application
 tmp/*.php
+
+# Also Ignores sql
+*.sql

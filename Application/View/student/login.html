@@ -19,12 +19,12 @@
 
   <style>
     .panel-title a {
-      font-size: 1.2em;
+      font-size: 1.4em;
     }
   </style>
 
   <!-- Custom Fonts -->
-  <!-- <link href="{{ @BASE,@ASSETS.admin }}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="{{ @BASE,@ASSETS.student }}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,10 @@
                   <input class="form-control" placeholder=Username name="username" type="text" autofocus>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="Password" name="password" type="password" id="passField" value="">
+                    <div id="passButton" class="input-group-addon"><i id="passIcon" class="fa fa-eye-slash" aria-hidden="true"></i></div>
+                  </div>
                 </div>
                 <div class="checkbox">
                   <label>
@@ -67,6 +70,24 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    var passField = document.getElementById('passField');
+    var passButton = document.getElementById('passButton');
+    var passIcon = document.getElementById('passIcon');
+    
+    passButton.addEventListener('click',showHideToggle);
+
+    function showHideToggle() {
+      if(passIcon.className == "fa fa-eye-slash") {
+        passIcon.className = "fa fa-eye";
+        passField.type = "text";
+      }
+      else if(passIcon.className == "fa fa-eye") {
+        passIcon.className = "fa fa-eye-slash";
+        passField.type = "password";
+      }
+    }
+  </script>
 
 </body>
 

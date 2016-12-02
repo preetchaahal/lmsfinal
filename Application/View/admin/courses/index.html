@@ -1,10 +1,10 @@
 <include href="admin/_templates/header.html">
 
 <div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">Courses</h1>
-  </div>
-  <!-- /.col-lg-12 -->
+	<div class="col-lg-12">
+		<h1 class="page-header">Courses</h1>
+	</div>
+	<!-- /.col-lg-12 -->
 </div>
 
 <br>
@@ -37,7 +37,7 @@
                 <check if="{{ @course.archived }}">
                     <false>
                         <tr>
-                            <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                            <td><a title="Edit" href="{{ @BASE }}{{ 'admin_courses_edit', 'id='.@course.id | alias }}"><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
                             <td>{{ @course.name }}</td>
                             <td>{{ @course.display_name}}</td>
                             <td>{{ @course.duration }}</td>
@@ -45,10 +45,10 @@
                             <td style="text-align: center">
                                 <check if="{{ @course.status }}">
                                     <true>
-                                      <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                      <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
                                     </true>
                                     <false>
-                                        <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                        <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
                                     </false>
                                 </check>
                             </td>
@@ -80,7 +80,7 @@
                         <check if="{{ @course.status }}">
                             <true>
                                 <tr>
-                                    <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                                    <td><a title="Edit" href="{{ @BASE }}{{ 'admin_courses_edit', 'id='.@course.id | alias }}"><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
                                     <td>{{ @course.name }}</td>
                                     <td>{{ @course.display_name}}</td>
                                     <td>{{ @course.duration }}</td>
@@ -88,10 +88,10 @@
                                     <td style="text-align: center">
                                         <check if="{{ @course.status }}">
                                             <true>
-                                              <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                              <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
                                             </true>
                                             <false>
-                                                <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                                <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
                                             </false>
                                         </check>
                                     </td>
@@ -125,7 +125,7 @@
                         <check if="{{ @course.status }}">
                             <false>
                                 <tr>
-                                    <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                                    <td><a title="Edit" href="{{ @BASE }}{{ 'admin_courses_edit', 'id='.@course.id | alias }}"><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
                                     <td>{{ @course.name }}</td>
                                     <td>{{ @course.display_name}}</td>
                                     <td>{{ @course.duration }}</td>
@@ -133,10 +133,10 @@
                                     <td style="text-align: center">
                                         <check if="{{ @course.status }}">
                                             <true>
-                                              <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                              <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
                                             </true>
                                             <false>
-                                                <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                                <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
                                             </false>
                                         </check>
                                     </td>
@@ -168,7 +168,7 @@
                 <check if="{{ @course.archived }}">
                     <true>
                         <tr>
-                            <td><a title="Edit" href=""><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
+                            <td><a title="Edit" href="{{ @BASE }}{{ 'admin_courses_edit', 'id='.@course.id | alias }}"><i class="fa fa-pencil-square-o" style="font-size: 2em" aria-hidden="true"></i></a></td>
                             <td>{{ @course.name }}</td>
                             <td>{{ @course.display_name}}</td>
                             <td>{{ @course.duration }}</td>
@@ -176,10 +176,10 @@
                             <td style="text-align: center">
                                 <check if="{{ @course.status }}">
                                     <true>
-                                      <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
+                                      <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-success btn-block">Active</a>
                                     </true>
                                     <false>
-                                        <a href="{{@BASE}}{{ 'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
+                                        <a href="{{ @BASE }}{{'admin_courses_update', 'field=status,value='.@course.status.',id='.@course.id | alias }}" class="btn btn-danger btn-block">De-Active</a>
                                     </false>
                                 </check>
                             </td>

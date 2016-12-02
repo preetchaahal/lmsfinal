@@ -225,3 +225,19 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+/* Login Panel */
+
+.login-panel {
+    margin-top: 25%;
+}
+@media(max-width: 992px) {
+    .login-panel {
+        margin-top: 10%;
+    }
+}
+@media(max-width: 768px) {
+    .login-panel {
+        margin-top: 0%;
+    }
+}

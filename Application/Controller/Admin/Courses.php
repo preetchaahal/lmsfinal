@@ -9,20 +9,30 @@ class Courses implements Base {
 	
 	public function index($app)
 	{
-		$course = new \Model\Course($app->get('DB'));
+		$course = new Course($app->get('DB'));
 		$courses = $course->all();
 		$app->set('DATA',$courses);
 		
 		echo \Template::instance()->render('admin/courses/index.html');
 	}
 	
-	public function add()
+	public function showAddForm()
 	{
 		echo \Template::instance()->render('admin/courses/add.html');
 	}
+	
+	public function showEditForm($app)
+	{
+		$course = new Course($app->get('DB'));
+		$courses = $course->getById($app->get('PARAMS.id'));
+		$app->set('DATA',$courses[0]);
+		
+		echo \Template::instance()->render('admin/courses/edit.html');
+	}
+	
 	public function addNew($app)
 	{
-		$course = new \Model\Course($app->get('DB'));
+		$course = new Course($app->get('DB'));
 		$added = $course->addNew($app->get('POST'));
 		if($added)
 			$app->reroute('@admin_courses');
