@@ -1,0 +1,40 @@
+<include href="admin/_templates/header.html">
+
+<div class="row">
+    <div class="col-lg-12">
+    	<h1 class="page-header">Add New Page</h1>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
+        <form role="form" class="form-horizontal" method="post" action="{{ @BASE,@ALIASES.admin_cms_addPage }}">
+		    <div class="form-group form-group-lg">
+		        <label class="col-sm-2 control-label">Title</label>
+		        <div class="col-sm-10">
+		        	<input type="text" name="title" class="form-control">
+		        </div>
+		    </div>
+		    <div class="form-group form-group-lg">
+		        <label class="col-sm-2 control-label">Display Name</label>
+		        <div class="col-sm-10">
+		        	<input type="text" name="alias" class="form-control">
+		        </div>
+		    </div>
+		    <div class="form-group form-group-lg">
+		        <label class="col-sm-2 control-label">Description (Optional)</label>
+		        <div class="col-sm-10">
+		        	<textarea name="note" class="form-control" rows="5"></textarea>
+		        </div>
+		    </div>
+		    <div class="form-group form-group-lg">
+			    <div class="col-sm-10 col-sm-offset-2">
+				    <button type="submit" class="btn btn-success btn-lg">Save</button>
+				    <button type="reset" class="btn btn-primary btn-lg">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<include href="admin/_templates/footer.html">

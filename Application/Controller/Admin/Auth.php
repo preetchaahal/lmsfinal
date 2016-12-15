@@ -19,6 +19,16 @@ class Auth {
 		$this->_hashPassword();
 	}
 
+	public static function loginPage($app)
+	{
+		echo \Template::instance()->render('admin/login.html');
+	}
+
+	public static function registerPage($app)
+	{
+		echo \Template::instance()->render('admin/register.html');
+	}
+
 	public function login($app)
 	{
 		$authorized = $app->get('auth_admin')->login(
@@ -38,7 +48,7 @@ class Auth {
 		}
 	}
 
-	public function logout($app)
+	public static function logout($app)
 	{
 		$app->clear('SESSION.admin.id');
 		$app->reroute('@admin_login');

@@ -28,13 +28,13 @@ abstract class DB extends \DB\SQL\Mapper {
 
 	public function getById($id = null)
 	{
-		return $this->db->exec("SELECT * FROM {$this->table_name} WHERE id={$id}");
+		return $this->db->exec("SELECT * FROM {$this->table_name} WHERE id={$id} LIMIT 1");
 	}
 
 	public function findIf($condition = null)
 	{
 		if(isset($condition))
-			return $this->db->exec("SELECT * FROM {$this->table_name} WHERE $condition");
+			return $this->db->exec("SELECT * FROM {$this->table_name} WHERE $condition LIMIT 1");
 		else
 			throw new Exception("Condition not provided", 1);
 	}
@@ -48,6 +48,12 @@ abstract class DB extends \DB\SQL\Mapper {
 		$this->$params['field'] = $params['value'] ? 0 : 1;
 		$this->save();
 		return true;
+	}
+
+	public function delete(Array $params)
+	{
+		$this->load($params);
+		$this->erase();
 	}
 
 	public function __destruct() {

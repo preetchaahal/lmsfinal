@@ -1,0 +1,54 @@
+<include href="admin/_templates/beforeStylesheets.html"></include>
+<include href="admin/_templates/stylesheets.html"></include>
+<!-- Summernote CSS -->
+<link rel="stylesheet" type="text/css" href="{{ @BASE,@ASSETS.admin }}/summernote/summernote.css">
+
+<include href="admin/_templates/afterStylesheets.html"></include>
+
+<div class="row">
+    <div class="col-lg-12">
+    	<h1 class="page-header">Edit Page</h1>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-8">
+        <form role="form" method="post" action="{{ @BASE,@ALIASES.admin_cms_editPage }}">
+		    <div class="form-group form-group-lg">
+		        <input type="text" name="alias" class="form-control" value="{{ @DATA.alias }}">
+		    </div>
+		    <div class="form-group">
+				<div id="cms-html-editor">{{ @CMS_PAGE | raw }}</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<div class="panel-body">
+				<div>
+		            <i class="fa fa-pencil fa-fw"></i>Last Updated
+		            <span class="pull-right text-muted small"><em>{{ @DATA.updated_at }}</em>
+		            </span>
+	            </div>
+	            <hr>
+	            <div>
+		            <i class="fa fa-comment fa-fw"></i> Info
+		            <span class="pull-right text-muted small"><em>{{ @DATA.note }}</em>
+		            </span>
+	            </div>
+	            <hr>
+	            <span class="pull-right"><button type="reset" class="btn btn-primary">Publish</button></span>
+	        </div>
+		</div>
+	</div>
+</div>
+
+<include href="admin/_templates/beforeScripts.html"></include>
+<include href="admin/_templates/scripts.html"></include>
+<!-- Summernote JS -->
+<script type="text/javascript" src="{{ @BASE,@ASSETS.admin }}/summernote/summernote.min.js"></script>
+<script type="text/javascript">
+	$('#cms-html-editor').summernote();
+</script>
+<include href="admin/_templates/afterScripts.html"></include>
