@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2016 at 03:42 PM
+-- Generation Time: Dec 25, 2016 at 09:00 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -248,7 +248,7 @@ ALTER TABLE `lms_assignments_dzstd`
 -- AUTO_INCREMENT for table `lms_cms_pages_dzstd`
 --
 ALTER TABLE `lms_cms_pages_dzstd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `lms_courses_dzstd`
 --
