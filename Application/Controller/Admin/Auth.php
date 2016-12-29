@@ -5,7 +5,7 @@ namespace Controller\Admin;
 use \Model\Admin as Admin;
 
 class Auth {
-	
+
 	private $_credentials = array(
 		'username' => null,
 		'password' => null,
@@ -37,12 +37,13 @@ class Auth {
 		);
 
 		if($authorized) {
+
 			$app->set('SESSION.admin.id',
 				md5($this->_credentials['username'].$this->_credentials['password'])
 			);
 			$app->reroute('@admin');
-			
 		} else {
+
 			$app->set('MESSAGE.action','Invalid Username or Password');
 			$app->reroute('@admin_login');
 		}
@@ -55,14 +56,14 @@ class Auth {
 	}
 
 	public function register($app)
-	{	
+	{
 		if($this->_checkIfExists($app)) {
-			
+
 			$app->reroute('@admin_register');
-		
+
 		} else {
 
-			$admin = new Admin($app->get('DB'));		
+			$admin = new Admin($app->get('DB'));
 			$added = $admin->addNew($this->_credentials);
 
 			if($added) {
@@ -73,21 +74,21 @@ class Auth {
 	}
 
 	private function _checkIfExists($app)
-	{	
+	{
 		$admin = new Admin($app->get('DB'));
-		
+
 		$usernameExists = $admin->findIf("username = '{$this->_credentials['username']}'");
 		$emailExists = $admin->findIf("email = '{$this->_credentials['email']}'");
-		
+
 		if($usernameExists)
 			$app->set('MESSAGE.action','Username already exists');
-		
+
 		if($emailExists)
 			$app->set('MESSAGE.action','Email already exists');
 
 		if($emailExists && $usernameExists)
 			$app->set('MESSAGE.action','Username & Email both already exist');
-		
+
 		return($usernameExists || $emailExists);
 	}
 

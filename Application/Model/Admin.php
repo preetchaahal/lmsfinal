@@ -4,7 +4,7 @@ namespace Model;
 
 class Admin extends DB {
 
-	const TABLE = 'lms_admins_dzstd';
+	const TABLE = 'lms_admins_fd';
 
 	public function __construct(\DB\SQL $db)
 	{

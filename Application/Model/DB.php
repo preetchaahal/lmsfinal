@@ -26,11 +26,6 @@ abstract class DB extends \DB\SQL\Mapper {
 		return true;
 	}
 
-	// public function getById($id = null)
-	// {
-	// 	return $this->db->exec("SELECT * FROM {$this->table_name} WHERE id={$id} LIMIT 1");
-	// }
-
 	public function getById($id = null)
 	{
 		return $this->load("id = {$id}");

@@ -8,7 +8,7 @@ $app->route("GET /*", function($app) {
 });
 
 $app->route("GET /db/@num", function($app) {
-	$table = 'lms_courses_dzstd';
+	$table = 'lms_courses_fd';
 	$test = new \Model\Test($app->get('DB'), $table);
 
 	print "<h1>print_r</h1>";

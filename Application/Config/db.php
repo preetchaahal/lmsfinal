@@ -9,12 +9,12 @@ $app->set('DB', new DB\SQL(
 
 $app->set('admin', new DB\SQL\Mapper(
 	$app->get('DB'),
-	'lms_admins_dzstd'
+	'lms_admins_fd'
 	)
 );
 
 $app->set('student', new DB\SQL\Mapper(
 	$app->get('DB'),
-	'lms_students_dzstd'
+	'lms_students_fd'
 	)
 );
