@@ -1,4 +1,6 @@
 # Ignoring the temporary cached files created by application
 tmp/*.php
+# SQL Files
 *.sql
+# Uploads is under R&D
 Application/Uploads/test/*

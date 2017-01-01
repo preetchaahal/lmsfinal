@@ -9,9 +9,6 @@
 			<center><img src="" width="300" height="300" style="border: solid 1px #999; border-radius: 100%; overflow: hidden"></center>
 			<br>
 			<form role="form" method="post" enctype="multipart/form-data" action="{{ @BASE,@ALIASES.admin_profile_edit }}">
-				<div class="form-group">
-					<input type="file" name="image" class="form-control">
-				</div>
         <div class="form-group">
             <label>Username</label>
             <input type="text" class="form-control" value="{{ @DATA.username }}"  disabled>

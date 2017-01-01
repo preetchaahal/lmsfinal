@@ -132,7 +132,6 @@ $app->route("POST @admin_profile_edit: /admin/profile/edit",  function($f3) {
 	print_r($_FILES);
 });
 
-
 /* TEST Routes*/
 // $app->route("GET /admin/test/escaping",	function($f3) {
 // 	$f3->set('DATA',"<html>");
