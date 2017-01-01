@@ -1,3 +1,4 @@
 # Ignoring the temporary cached files created by application
 tmp/*.php
 *.sql
+Application/Uploads/test/*

@@ -5,36 +5,30 @@
   </div>
   <br>
 	<div class="row">
-		<div class="col-lg-3"></div>
-		<div class="col-lg-6">
+		<div class="col-lg-6 col-lg-offset-3">
 			<center><img src="" width="300" height="300" style="border: solid 1px #999; border-radius: 100%; overflow: hidden"></center>
 			<br>
-			<form role="form" method="post" action="{{ @BASE,@ALIASES.course_add }}">
+			<form role="form" method="post" enctype="multipart/form-data" action="{{ @BASE,@ALIASES.admin_profile_edit }}">
 				<div class="form-group">
-					<input type="file" name="photo" class="form-control">
+					<input type="file" name="image" class="form-control">
 				</div>
-			    <div class="form-group">
-			        <label>Name</label>
-			        <input type="text" name="name" class="form-control">
-			    </div>
-			    <div class="form-group">
-			        <label>Display Name</label>
-			        <input type="text" name="display_name" class="form-control">
-			    </div>
-			    <div class="form-group">
-			        <label>Duration</label>
-			        <input type="text" name="duration" class="form-control">
-			    </div>
-			    <div class="form-group">
-			        <label>Description(Optional)</label>
-			        <textarea name="description" class="form-control"></textarea>
-			    </div>
-			    <div class="form-group">
-				    <button type="submit" class="btn btn-default">Save</button>
-				    <button type="reset" class="btn btn-default">Reset</button>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" value="{{ @DATA.username }}"  disabled>
+        </div>
+		    <div class="form-group">
+		        <label>Name</label>
+		        <input type="text" name="fullname" class="form-control" value="{{ @DATA.fullname }}">
+		    </div>
+		    <div class="form-group">
+		        <label>Email</label>
+		        <input type="email" name="email" class="form-control" value="{{ @DATA.email }}">
+		    </div>
+		    <div class="form-group">
+			    <button type="submit" class="btn btn-default">Save</button>
+			    <button type="reset" class="btn btn-default">Reset</button>
 				</div>
 			</form>
 		</div>
-		<div class="col-lg-3"></div>
   </div>
 <include href="admin/_templates/footer.html">

@@ -36,7 +36,7 @@ abstract class DB extends \DB\SQL\Mapper {
 		if(isset($condition))
 			return $this->db->exec("SELECT * FROM {$this->table_name} WHERE $condition LIMIT 1");
 		else
-			throw new Exception("Condition not provided", 1);
+			throw new \Exception("Condition not provided");
 	}
 
 	public function updateStatus(Array $params)

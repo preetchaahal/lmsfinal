@@ -121,6 +121,16 @@ $app->route("POST @admin_cms_editPage:	/admin/cms/page/edit/@id",	function($f3) 
 	print_r($app->get('POST'));
 });
 
+/* Profile */
+$app->route("GET @admin_profile: /admin/profile", function($f3) {
+	$admin = new Admin($f3);
+	$admin->set(new Profile);
+	$admin->profile->index($f3);
+});
+$app->route("POST @admin_profile_edit: /admin/profile/edit",  function($f3) {
+	print_r($_POST);
+	print_r($_FILES);
+});
 
 
 /* TEST Routes*/
@@ -129,7 +139,9 @@ $app->route("POST @admin_cms_editPage:	/admin/cms/page/edit/@id",	function($f3) 
 // 	echo \Template::instance()->render('testpages/escaping.html');
 // });
 // $app->route("GET /admin/test", function($f3) {
-// 	echo time('s');
+// 	$web = \Web::instance();
+// 	$file = $f3->get('UPLOADS').'video.mov';
+// 	$web->send($file,NULL,512,TRUE);
 // });
 // $app->route("POST @admin_cms_addPage:	/admin/cms/page/add",	function($f3) {
 // 	$f3->set('DATA',"<html>");

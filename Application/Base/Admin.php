@@ -8,7 +8,7 @@ class Admin extends Application {
 
 	public function __construct($app)
 	{
-		if(!$app->exists('SESSION.admin.id'))
+		if(!$app->exists('SESSION.admin.SESS_ID'))
 			$app->reroute('@admin_login');
 	}
 }

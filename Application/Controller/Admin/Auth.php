@@ -38,9 +38,10 @@ class Auth {
 
 		if($authorized) {
 
-			$app->set('SESSION.admin.id',
+			$app->set('SESSION.admin.SESS_ID',
 				md5($this->_credentials['username'].$this->_credentials['password'])
 			);
+			$app->set('SESSION.admin.user', $this->_credentials['username']);
 			$app->reroute('@admin');
 		} else {
 
@@ -51,7 +52,7 @@ class Auth {
 
 	public static function logout($app)
 	{
-		$app->clear('SESSION.admin.id');
+		$app->clear('SESSION.admin.SESS_ID');
 		$app->reroute('@admin_login');
 	}
 

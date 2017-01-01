@@ -10,4 +10,12 @@ class Admin extends DB {
 	{
 		parent::__construct($db, self::TABLE);
 	}
+	public function getByUsername($username = null)
+	{
+		if(!empty($username))
+			return $this->load('username = "'.$username.'"');
+		else
+			throw new \Exception("Didn't provide Username in ".__CLASS__."::getByUsername");
+
+	}
 }
