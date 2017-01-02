@@ -1,0 +1,3 @@
+[submodule "DbConnector"]
+	path = vendor/fatfree
+	url = https://github.com/bcosca/fatfree
