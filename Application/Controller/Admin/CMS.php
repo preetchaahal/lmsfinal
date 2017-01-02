@@ -22,29 +22,39 @@ class CMS implements Base {
 	}
 	public function addPage($app)
 	{
-		die(print_r($app->get('POST'),1));
+
+		// convert spaces to dashes to be added to actual title
+		// check if te same title with dashes exists
+		// if exists append 1 or 2 or whatever
+		// the title added should be added as alias
+		// the route should also be same as the title.
+		// the content of the page should be added to a new file. if no content then just create a file
+		// save draft only save the page 
+		// publish would display the page also
 		
 		$cms_page = new CMS_PAGE($app->get('DB'));
 
+		$app->get('POST')['title'] = strtolower(str_replace(' ','-',$app->get('POST')['title']));
+
 		if(!($cms_page->findIf("title = '{$app->get('POST')['title']}'"))) {
 
-			$values = array_merge( $app->get('POST'), 
-				array(
-					'filename' => md5($app->get('POST')['title']),
-					'route' => '/'.strtolower($app->get('POST')['title'])
-					)
-				);
+		// 	$values = array_merge( $app->get('POST'), 
+		// 		array(
+		// 			'filename' => md5($app->get('POST')['title']),
+		// 			'route' => '/'.strtolower($app->get('POST')['title'])
+		// 			)
+		// 		);
 		
-			$added = $cms_page->addNew($values);
+		// 	$added = $cms_page->addNew($values);
 			
-			if($added) {
-				if(!file_exists($app->get('UI')."website/".$values['filename'].".html"))
-					$file = fopen($app->get('UI')."website/".$values['filename'].".html","w");
-				else
-					echo "The File already exists";
-			}
-			fclose($file);
-		}
+		// 	if($added) {
+		// 		if(!file_exists($app->get('UI')."website/".$values['filename'].".html"))
+		// 			$file = fopen($app->get('UI')."website/".$values['filename'].".html","w");
+		// 		else
+		// 			echo "The File already exists";
+		// 	}
+		// 	fclose($file);
+		// }
 	}
 	public function showEditForm($app)
 	{
