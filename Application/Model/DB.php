@@ -28,13 +28,13 @@ abstract class DB extends \DB\SQL\Mapper {
 
 	public function getById($id = null)
 	{
-		return $this->load("id = {$id}");
+		return $this->load(array('id = ?',$id));
 	}
 
-	public function findIf($condition = null)
+	public function findIf(Array $condition)
 	{
 		if(isset($condition))
-			return $this->db->exec("SELECT * FROM {$this->table_name} WHERE $condition LIMIT 1");
+			return $this->load($condition);
 		else
 			throw new \Exception("Condition not provided");
 	}
@@ -44,7 +44,8 @@ abstract class DB extends \DB\SQL\Mapper {
 		/**
 		* Takes id as row identifier and then the field you want to update. Only Booleans.
 		*/
-		$this->load("id = {$params['id']}");
+		$this->load(array('id = ?',$params['id']);
+		
 		$this->$params['field'] = $params['value'] ? 0 : 1;
 		$this->save();
 		return true;
