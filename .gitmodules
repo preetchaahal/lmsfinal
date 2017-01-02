@@ -1,3 +1,6 @@
 [submodule "vendor/f3-access"]
 	path = vendor/f3-access
 	url = https://github.com/xfra35/f3-access
+[submodule "vendor/fatfree"]
+	path = vendor/fatfree
+	url = https://github.com/bcosca/fatfree
