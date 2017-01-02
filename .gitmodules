@@ -1,9 +1,0 @@
-[submodule "DbConnector"]
-	path = vendor/fatfree
-	url = https://github.com/bcosca/fatfree
-[submodule "lmsfinal"]
-	path = lmsfinal
-	url = https://github.com/singhhrpreet/lmsfinal
-[submodule "fatfree"]
-	path = fatfree
-	url = https://github.com/bcosca/fatfree
