@@ -6,7 +6,7 @@ if ((float)PCRE_VERSION<7.9)
 if(version_compare(PHP_VERSION,"5.3.15","<"))
   die("Older PHP Version installed. \n Required Version 5.3.15. \n PHP Version Installed: ".PHP_VERSION);
 
-$app = require_once('lib/base.php');
+$app = require_once('vendor/fatfree/lib/base.php');
 
 $app->config('Application/Config/globals.ini');
 
