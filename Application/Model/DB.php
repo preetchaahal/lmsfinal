@@ -44,7 +44,7 @@ abstract class DB extends \DB\SQL\Mapper {
 		/**
 		* Takes id as row identifier and then the field you want to update. Only Booleans.
 		*/
-		$this->load(array('id = ?',$params['id']);
+		$this->load(array('id = ?',$params['id']));
 		
 		$this->$params['field'] = $params['value'] ? 0 : 1;
 		$this->save();
